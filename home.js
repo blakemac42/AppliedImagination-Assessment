@@ -1,6 +1,6 @@
 $( document ).ready(function() {
         
-// PRICE SLIDER
+// EVENT SIZE SLIDER
 $(".slider")
 
 .slider({ 
@@ -25,6 +25,19 @@ $('.filter-btn').on('click', function () {
     $(this).addClass('active');
 });
 
+
+// on change on every filter field 
+
+// $("#event-search").on('input', function() {
+//     let location = $(this).val();
+//     console.log(location)
+// })
+
+
+
+// ajax interceptor 
+
+// on change event, fire ajax (post request?), have that typed input set as a piece of data 
 
 });
      

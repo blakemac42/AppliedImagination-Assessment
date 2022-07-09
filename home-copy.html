@@ -221,6 +221,8 @@
         
         $(document).ready(function() {
             loadJSON();
+            newLocation = $('#event-search').val();
+            console.log(newLocation)
         });
 
         function loadJSON() {
@@ -248,26 +250,21 @@
                         }
         
                             http_request.onreadystatechange = function() {
-                                let search = false;
-                                let city = false;
-                                let minHour = false;
-                                let maxHour = false;
-                                let minPrice = false;
-                                let maxPrice = false;
                     
                             if (http_request.readyState == 4  ) {
                             // Javascript function JSON.parse to parse JSON data
                             var jsonObj = JSON.parse(http_request.responseText);
+                            console.log(jsonObj);
 
                             $("#event-search").on('input', function() {
                                 let search = $(this).val();
                                 // console.log(search)
-                                watchFilter(search)
+                                fetchEvent(search)
                             })
 
                             $("#city").on('change', function(i){
                                 var optionSelected = $('option:selected', this);
-                                var city = this.value;
+                                var valueSelected = this.value;
                                 // console.log(valueSelected)
                                 fetchEvent(valueSelected);
                             })
@@ -306,74 +303,33 @@
                                 } 
                             }
 
-                           
-                            // var matchedEvent = $(jsonObj).filter(function (index) {
-                            // if (search != false){
-                            //     return jsonObj[index].eventLocation == search;
-                            // } else {console.log('return false')}
-                            // });
-
-                            // let matchedEvent = false;
-
-                                function watchFilter (input) {
-                                var matchedEvent = $(jsonObj).filter(function (index) {
-
-                                return jsonObj[index].eventLocation == input;
-
-                                });
-                                
-                                fetchEvent(matchedEvent)
-
-                                    function fetchEvent (matchedEvents){
-                                        $(matchedEvents).each(function(i, event) {
-                                        
-                                            $(".event-container").append("<div class='event filtered-event'>\
-                                            <div class='event-img'>\
-                                                <img src='event-1.png'>\
-                                                <div class='event-user'>\
-                                                    <span class='user'><ion-icon name='person'></ion-icon>Jane Doe &#8226; 30 mins</span>\
-                                                </div>\
-                                            </div>\
-                                            <div class='event-detail'>\
-                                                <h6>" + event.eventName + "</h6>\
-                                                <p>Apr 20, 2020 &#8226;" + event.eventLocation + "</p>\
-                                            </div>\
-                                        </div>")
-                                        })
-                                    }
-                                }
-                                
-                            
-
-                            // var matchedEvent = $(jsonObj).filter(function (index) {
-                            
-                            //     return jsonObj[index].eventLocation == search;
-                            
-                            // });
-
-                            console.log(jsonObj);
-
-                            // console.log(search)
-                            // console.log(matchedEvent)
-
-                                // function fetchEvent (matchedEvents){
-                                //     console.log('matched events is ' + matchedEvents)
-                                //     $(matchedEvents).each(function(i, event) {
+                                function fetchEvent (filterVal){
                                     
-                                //         $(".event-container").append("<div class='event filtered-event'>\
-                                //         <div class='event-img'>\
-                                //             <img src='event-1.png'>\
-                                //             <div class='event-user'>\
-                                //                 <span class='user'><ion-icon name='person'></ion-icon>Jane Doe &#8226; 30 mins</span>\
-                                //             </div>\
-                                //         </div>\
-                                //         <div class='event-detail'>\
-                                //             <h6>" + event.eventName + "</h6>\
-                                //             <p>Apr 20, 2020 &#8226;" + event.eventLocation + "</p>\
-                                //         </div>\
-                                //     </div>")
-                                //     })
-                                // }
+                                    $(jsonObj).each(function(i, event) {
+                                    if (~filterVal.indexOf(event.eventLocation)
+                                    || ~filterVal.indexOf(event.eventName)
+                                    || filterVal >= event.eventLength
+                                    || filterVal >= event.eventCost
+                                    ){
+                                    console.log(event);
+                                    
+                                        $(".event-container").append("<div class='event filtered-event'>\
+                                        <div class='event-img'>\
+                                            <img src='event-1.png'>\
+                                            <div class='event-user'>\
+                                                <span class='user'><ion-icon name='person'></ion-icon>Jane Doe &#8226; 30 mins</span>\
+                                            </div>\
+                                        </div>\
+                                        <div class='event-detail'>\
+                                            <h6>" + event.eventName + "</h6>\
+                                            <p>Apr 20, 2020 &#8226;" + event.eventLocation + "</p>\
+                                        </div>\
+                                    </div>")
+                                    } else {
+                                        
+                                    }
+                                })
+                                }
                             }
                         }
                         

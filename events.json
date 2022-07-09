@@ -1,0 +1,23 @@
+[
+    {
+        "eventName": "first event",
+        "eventLocation": "Birmingham",
+        "eventLength": 2,
+        "eventCost": 30,
+        "size": 200
+    },
+    { 
+        "eventName": "second event",
+        "eventLocation": "Mobile",
+        "eventLength": 3,
+        "eventCost": 50,
+        "size": 300
+    },
+    { 
+        "eventName": "third event",
+        "eventLocation": "Jackson",
+        "eventLength": 4,
+        "eventCost": 100,
+        "size": 600
+    }
+]
