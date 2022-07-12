@@ -140,170 +140,154 @@
 
 <!-- FILTER LOGIC START -->
 <script>
+    $(document).ready(fetchEvents);
 
-        $(document).ready(function() {
-                $.ajax({
-                type: "GET",
-                url: "http://localhost:8000/events.json",
-                success: function () {
-                    fetchEvents();
-                }
-            });
-        });
+    let jsonObj = JSON.parse('[\
+            {\
+                "eventName": "Apple Keynote",\
+                "eventLocation": "birmingham",\
+                "eventLength": 2,\
+                "eventCost": 30,\
+                "eventHost": "Jane Doe &#8226; 30 mins",\
+                "eventSize": 100,\
+                "eventDate": "Apr 20, 2020"\
+            },\
+            {\
+                "eventName": "Basic Title that Truncates When There\'s Too Much",\
+                "eventLocation": "mobile",\
+                "eventLength": 2,\
+                "eventCost": 50,\
+                "eventHost": "Eric Chan &#8226; 2 hrs",\
+                "eventSize": 200,\
+                "eventDate": "May 3, 2020"\
+            },\
+            {\
+                "eventName": "Node, NPM, and You",\
+                "eventLocation": "jackson",\
+                "eventLength": 4,\
+                "eventCost": 100,\
+                "eventHost": "Jerry Head &#8226; 1 hr",\
+                "eventSize": 300,\
+                "eventDate": "Aug 24, 2020"\
+            },\
+            {\
+                "eventName": "Facebook Developer Conference",\
+                "eventLocation": "mobile",\
+                "eventLength": 2,\
+                "eventCost": 100,\
+                "eventHost": "Ryan Bruzan &#8226; 8 hrs",\
+                "eventSize": 400,\
+                "eventDate": "Jan 1, 2021"\
+            },\
+            {\
+                "eventName": "Apple Keynote",\
+                "eventLocation": "atlanta",\
+                "eventLength": 2,\
+                "eventCost": 150,\
+                "eventHost": "Jane Doe &#8226; 30 mins",\
+                "eventSize": 500,\
+                "eventDate": "Apr 20, 2020"\
+            },\
+            {\
+                "eventName": "Basic Title that Truncates When There\'s Too Much",\
+                "eventLocation": "atlanta",\
+                "eventLength": 2,\
+                "eventCost": 200,\
+                "eventHost": "Eric Chan &#8226; 30 mins",\
+                "eventSize": 700,\
+                "eventDate": "May 3, 2020"\
+            }\
+        ]');
 
-        const searchElement = $("#event-search").on('input', fetchFilteredEvents);
-        const locationFilter = $("#city").on('input', fetchFilteredEvents);
-        const minHourFilter = $("#min-hour").on('change', fetchFilteredEvents);
-        const maxHourFilter = $("#max-hour").on('change', fetchFilteredEvents);
-        const minPriceFilter = $("#min-price").on('input', fetchFilteredEvents);
-        const maxPriceFilter = $("#max-price").on('input', fetchFilteredEvents);
+    const searchElement = $("#event-search").on('input', fetchFilteredEvents);
+    const locationFilter = $("#city").on('input', fetchFilteredEvents);
+    const minHourFilter = $("#min-hour").on('change', fetchFilteredEvents);
+    const maxHourFilter = $("#max-hour").on('change', fetchFilteredEvents);
+    const minPriceFilter = $("#min-price").on('input', fetchFilteredEvents);
+    const maxPriceFilter = $("#max-price").on('input', fetchFilteredEvents);
+    
+    var minSizeFilter
+    var maxSizeFilter
 
-        let minSizeFilter
-        let maxSizeFilter
+    var checkExist = setInterval(function () {
+        if ($('#0, #1').length) {
+            clearInterval(checkExist);
+            minSizeFilter = $("span#0").on('DOMSubtreeModified', fetchFilteredEvents)
+            maxSizeFilter = $("span#1").on('DOMSubtreeModified', fetchFilteredEvents)
+        }
+    }, 100);
 
-        var checkExist = setInterval(function () {
-            if ($('#0, #1').length) {
-                clearInterval(checkExist);
-                minSizeFilter = $("span#0").on('DOMSubtreeModified', fetchFilteredEvents)
-                maxSizeFilter = $("span#1").on('DOMSubtreeModified', fetchFilteredEvents)
-            }
-        }, 100);
-
-        function fetchEvents() {
-            var data_file = "http://localhost:8000/events.json";
-            var http_request = new XMLHttpRequest();
-            try {
-                // Opera 8.0+, Firefox, Chrome, Safari
-                http_request = new XMLHttpRequest();
-            } catch (e) {
-                // Internet Explorer Browsers
-                try {
-                    http_request = new ActiveXObject("Msxml2.XMLHTTP");
-                }
-                catch (e) {
-                    try {
-                        http_request = new ActiveXObject("Microsoft.XMLHTTP");
-                    }
-                    catch (e) {
-                        // Something went wrong
-                        alert("Your browser broke!");
-                        return false;
-                    }
-
-                }
-            }
-
-            http_request.onreadystatechange = function () {
-
-
-                if (http_request.readyState == 4) {
-                    // Javascript function JSON.parse to parse JSON data
-                    jsonObj = JSON.parse(http_request.responseText);
-                    $(jsonObj).each(function (i, event) {
-                        console.log(event);
-                        $(".event-container").append("<div class='event filtered-event'>\
-                                        <div class='event-img'>\
-                                            <img src='event-1.png'>\
-                                            <div class='event-user'>\
-                                                <span class='user'><ion-icon name='person'></ion-icon>" + event.eventHost + "</span>\
-                                            </div>\
+    function fetchEvents() {
+        $(jsonObj).each(function (i, event) {
+            console.log(event);
+            $(".event-container").append("<div class='event filtered-event'>\
+                                    <div class='event-img'>\
+                                        <img src='event-1.png'>\
+                                        <div class='event-user'>\
+                                            <span class='user'><ion-icon name='person'></ion-icon>" + event.eventHost + "</span>\
                                         </div>\
-                                        <div class='event-detail'>\
-                                            <h6 >" + event.eventName + "</h6>\
-                                            <p class='event-location'>Apr 20, 2020 &#8226; " + event.eventLocation + "</p>\
+                                    </div>\
+                                    <div class='event-detail'>\
+                                        <h6 >" + event.eventName + "</h6>\
+                                        <p class='event-location'>Apr 20, 2020 &#8226; " + event.eventLocation + "</p>\
+                                    </div>\
+                                </div>")
+        })
+        $(".event-container").append("<div class='event-view-more'><p>View More 100+</p></div>");
+        $('.event-location').css('text-transform', 'capitalize');
+    }
+
+    function fetchFilteredEvents() {
+        $(".event-container").children().remove();
+
+        $(jsonObj).each(function (i, event) {
+            if (filter(event)) {
+                $(".event-container").append("<div class='event filtered-event'>\
+                                    <div class='event-img'>\
+                                        <img src='event-1.png'>\
+                                        <div class='event-user'>\
+                                            <span class='user'><ion-icon name='person'></ion-icon>" + event.eventHost + "</span>\
                                         </div>\
-                                    </div>")
-                    })
-                    $(".event-container").append("<div class='event-view-more'><p>View More 100+</p></div>");
-                    $('.event-location').css('text-transform', 'capitalize');
-                    
-                }
+                                    </div>\
+                                    <div class='event-detail'>\
+                                        <h6 >" + event.eventName + "</h6>\
+                                        <p class='event-location'> "+ event.eventDate + ' &#8226; ' + event.eventLocation + "</p>\
+                                    </div>\
+                                </div>")
             }
-            http_request.open("GET", data_file, true);
-            http_request.send();
-        }
+            $('.event-location').css('text-transform', 'capitalize');
+        })
+    }
 
-        function fetchFilteredEvents() {
-            var data_file = "events.json";
-            var http_request = new XMLHttpRequest();
-            try {
-                // Opera 8.0+, Firefox, Chrome, Safari
-                http_request = new XMLHttpRequest();
-            } catch (e) {
-                // Internet Explorer Browsers
-                try {
-                    http_request = new ActiveXObject("Msxml2.XMLHTTP");
-                }
-                catch (e) {
-                    try {
-                        http_request = new ActiveXObject("Microsoft.XMLHTTP");
-                    }
-                    catch (e) {
-                        // Something went wrong
-                        alert("Your browser broke!");
-                        return false;
-                    }
+    function filter(event) {
+        var searchValue = $("#event-search").val().toLowerCase();
+        var cityValue = $("#city").val().toLowerCase();
+        var minHour = $("#min-hour").val();
+        var maxHour = $("#max-hour").val();
+        var minPrice = parseInt($("#min-price").val());
+        var maxPrice = parseInt($("#max-price").val());
+        var minSize = parseInt($("span#0").text());
+        var maxSize = parseInt($("span#1").text());
+        return searchNameOrLocation(event, searchValue) && (cityValue === "any" ? true : event.eventLocation.toLowerCase() === cityValue) &&
+            withinRange(event.eventLength, minHour, maxHour) &&
+            withinPriceRange(event, minPrice, maxPrice) &&
+            withinRange(event.eventSize, minSize, maxSize)
+    }
 
-                }
-            }
-            http_request.onreadystatechange = function () {
-                if (http_request.readyState == 4) {
-                    // Javascript function JSON.parse to parse JSON data
-                    jsonObj = JSON.parse(http_request.responseText);
-                    $(".event-container").children().remove();
+    function searchNameOrLocation(event, searchValue) {
+        var matchedName = (event.eventName.toLowerCase().indexOf(searchValue) > -1);
+        var matchedLocation = (event.eventLocation.toLowerCase().indexOf(searchValue) > -1);
+        return (matchedLocation || matchedName);
+    }
 
-                    $(jsonObj).each(function (i, event) {
-                        if (filter(event)) {
-                            $(".event-container").append("<div class='event filtered-event'>\
-                                        <div class='event-img'>\
-                                            <img src='event-1.png'>\
-                                            <div class='event-user'>\
-                                                <span class='user'><ion-icon name='person'></ion-icon>" + event.eventHost + "</span>\
-                                            </div>\
-                                        </div>\
-                                        <div class='event-detail'>\
-                                            <h6 >" + event.eventName + "</h6>\
-                                            <p class='event-location'> "+ event.eventDate + ' &#8226; ' + event.eventLocation + "</p>\
-                                        </div>\
-                                    </div>")
-                        }
-                        $('.event-location').css('text-transform', 'capitalize');
-                    })
-                }
-            }
-            http_request.open("GET", data_file, true);
-            http_request.send();
-        }
+    function withinRange(eventVal, minVal, maxVal) {
+        return (eventVal >= minVal && eventVal <= maxVal);
+    }
 
-        function filter(event) {
-            var searchValue = $("#event-search").val().toLowerCase();
-            var cityValue = $("#city").val().toLowerCase();
-            var minHour = $("#min-hour").val();
-            var maxHour = $("#max-hour").val();
-            var minPrice = parseInt($("#min-price").val());
-            var maxPrice = parseInt($("#max-price").val());
-            var minSize = parseInt($("span#0").text());
-            var maxSize = parseInt($("span#1").text());
-            return searchNameOrLocation(event, searchValue) && (cityValue === "any" ? true : event.eventLocation.toLowerCase() === cityValue) &&
-                withinRange(event.eventLength, minHour, maxHour) &&
-                withinPriceRange(event, minPrice, maxPrice) &&
-                withinRange(event.eventSize, minSize, maxSize)
-        }
-
-        function searchNameOrLocation(event, searchValue) {
-            var matchedName = (event.eventName.toLowerCase().indexOf(searchValue) > -1);
-            var matchedLocation = (event.eventLocation.toLowerCase().indexOf(searchValue) > -1);
-              return (matchedLocation || matchedName);
-        }
-
-        function withinRange(eventVal, minVal, maxVal) {
-            return (eventVal >= minVal && eventVal <= maxVal);
-        }
-
-        function withinPriceRange(event, minPrice, maxPrice) {
-            var withinMin = isNaN(minPrice) ? true : event.eventCost >= minPrice;
-            var withinMax = isNaN(maxPrice) ? true : event.eventCost <= maxPrice;
-            return (withinMin && withinMax);
-        }
-    </script>
+    function withinPriceRange(event, minPrice, maxPrice) {
+        var withinMin = isNaN(minPrice) ? true : event.eventCost >= minPrice;
+        var withinMax = isNaN(maxPrice) ? true : event.eventCost <= maxPrice;
+        return (withinMin && withinMax);
+    }
+</script>
 </body>

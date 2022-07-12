@@ -414,6 +414,8 @@ select:focus-visible{
     top: -30px;
 }
 
+/* OVERRIDING SLIDER PLUGIN CSS */
+
 .ui-slider-label{
     display: none !important;
 }
@@ -435,6 +437,7 @@ select:focus-visible{
 
 .ui-slider-handle{
     top: -0.3em !important;
+    border-radius: 30px !important;
 }
 
 .ui-slider-range{

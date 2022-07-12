@@ -161,4 +161,17 @@
         padding-left: 8px;
     }
 
+    .footer-wrapper{
+        flex-wrap: wrap;
+    }
+
+    .copyright{
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    .copyright, .footer-icons{
+        flex-basis: 100%;
+    }
+
   }
