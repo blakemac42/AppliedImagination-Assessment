@@ -1,0 +1,309 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="slider.css">
+    <link rel="stylesheet" href="mobile.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
+    integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+    integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="home.js"></script>
+    <script src="slider.js"></script>
+</head>
+
+<body>
+    <div class="page-gutter">
+        <section id="head">
+            <div class="header">
+                <div class="logo">
+                    <img src="logo.svg">
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Company</a></li>
+                        <li><a href="#">Get in Touch</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <span class="header-divider"></span>
+
+    <section id="hero">
+        <div class="hero-copy-wrapper">
+            <h1>Find the right <br class="hidden-xs">event for <span>you</span></h1>
+            <p>From weddings to birthdays and all in between, the world needs speakers like you. And not just any
+                speaker - <i>really</i> good ones. If you think you've got the strongest, most confident voice in the
+                room, use it to broadcast a message that people want to hear.</p>
+            <h6>Yeah, we didn't think it could get any better either.</h6>
+            <div class="hero-btn-grp">
+                <a class="hero-btn active" href="#">
+                    <ion-icon name="navigate"></ion-icon>Find an Event
+                </a>
+                <a class="hero-btn" href="#">
+                    <ion-icon name="call"></ion-icon>Get in Touch
+                </a>
+            </div>
+        </div>
+        <div class="hero-img">
+            <img src="top-graphic.png">
+        </div>
+    </section>
+
+    <section id="events">
+        <div class="page-gutter">
+            <h2>Events for <span>every occasion</span></h2>
+            <div class="event-row">
+                <div class="event-container">
+                </div>
+                <div class="filter-container">
+                    <div class="filter-wrapper">
+                        <div class="btn-container">
+                            <button class="filter-btn active">In the Future</a>
+                            <button class="filter-btn">In the Past</a>
+                        </div>
+                        <div class="search-wrapper">
+                            <ion-icon class="search-icon" name="search-sharp"></ion-icon>
+                            <input id="event-search" class="search" type="text" name="search" label="Search"
+                                placeholder="Search by name or location...">
+                        </div>
+                        <div class="event-location-wrapper">
+                            <label class="category">Event Location</label>
+                            <select class="filter-select" name="city" id="city">
+                                <option seclected="any">Any</option>
+                                <option>Atlanta</option>
+                                <option>Birmingham</option>
+                                <option>Mobile</option>
+                                <option>Jackson</option>
+                            </select>
+                        </div>
+                        <div class="event-length">
+                            <div class="event-length-wrapper">
+                                <label class="category">Event Length</label>
+                                <select class="filter-select" id="min-hour">
+                                    <option selected value="1">1 hour</option>
+                                    <option value="2">2 hours</option>
+                                    <option value="3">3 hours</option>
+                                    <option value="4">4 hours</option>
+                                </select>
+                                <span>to</span>
+                                <select class="filter-select" id="max-hour">
+                                    <option value="1">1 hour</option>
+                                    <option value="2">2 hours</option>
+                                    <option value="3">3 hours</option>
+                                    <option selected value="4" value="4">4 hours</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="seat-cost">
+                            <label class="category">Seat Cost</label>
+                            <span class="dollar">$</span>
+                            <input id="min-price" type="text" label="Min" placeholder="Min">
+                            <span>to</span>
+                            <span class="dollar">$</span>
+                            <input id="max-price" type="text" label="Max" placeholder="Max">
+                        </div>
+                        <div class="event-size">
+                            <label class="category">Event Size</label>
+                            <div class="slider"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="footer">
+        <div class="footer-container">
+            <div class="footer-wrapper">
+                <div class="copyright">
+                    <p>Copyright &#169; Motivational Speakers, LLC All Rights Reserved.</p>
+                </div>
+                <div class="footer-icons">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                    <ion-icon name="logo-facebook"></ion-icon>
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- FILTER LOGIC START -->
+<script>
+
+        $(document).ready(function() {
+                $.ajax({
+                type: "GET",
+                url: "http://localhost:8000/events.json",
+                success: function () {
+                    fetchEvents();
+                }
+            });
+        });
+
+        const searchElement = $("#event-search").on('input', fetchFilteredEvents);
+        const locationFilter = $("#city").on('input', fetchFilteredEvents);
+        const minHourFilter = $("#min-hour").on('change', fetchFilteredEvents);
+        const maxHourFilter = $("#max-hour").on('change', fetchFilteredEvents);
+        const minPriceFilter = $("#min-price").on('input', fetchFilteredEvents);
+        const maxPriceFilter = $("#max-price").on('input', fetchFilteredEvents);
+
+        let minSizeFilter
+        let maxSizeFilter
+
+        var checkExist = setInterval(function () {
+            if ($('#0, #1').length) {
+                clearInterval(checkExist);
+                minSizeFilter = $("span#0").on('DOMSubtreeModified', fetchFilteredEvents)
+                maxSizeFilter = $("span#1").on('DOMSubtreeModified', fetchFilteredEvents)
+            }
+        }, 100);
+
+        function fetchEvents() {
+            var data_file = "http://localhost:8000/events.json";
+            var http_request = new XMLHttpRequest();
+            try {
+                // Opera 8.0+, Firefox, Chrome, Safari
+                http_request = new XMLHttpRequest();
+            } catch (e) {
+                // Internet Explorer Browsers
+                try {
+                    http_request = new ActiveXObject("Msxml2.XMLHTTP");
+                }
+                catch (e) {
+                    try {
+                        http_request = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    catch (e) {
+                        // Something went wrong
+                        alert("Your browser broke!");
+                        return false;
+                    }
+
+                }
+            }
+
+            http_request.onreadystatechange = function () {
+
+
+                if (http_request.readyState == 4) {
+                    // Javascript function JSON.parse to parse JSON data
+                    jsonObj = JSON.parse(http_request.responseText);
+                    $(jsonObj).each(function (i, event) {
+                        console.log(event);
+                        $(".event-container").append("<div class='event filtered-event'>\
+                                        <div class='event-img'>\
+                                            <img src='event-1.png'>\
+                                            <div class='event-user'>\
+                                                <span class='user'><ion-icon name='person'></ion-icon>" + event.eventHost + "</span>\
+                                            </div>\
+                                        </div>\
+                                        <div class='event-detail'>\
+                                            <h6 >" + event.eventName + "</h6>\
+                                            <p class='event-location'>Apr 20, 2020 &#8226; " + event.eventLocation + "</p>\
+                                        </div>\
+                                    </div>")
+                    })
+                    $(".event-container").append("<div class='event-view-more'><p>View More 100+</p></div>");
+                    $('.event-location').css('text-transform', 'capitalize');
+                    
+                }
+            }
+            http_request.open("GET", data_file, true);
+            http_request.send();
+        }
+
+        function fetchFilteredEvents() {
+            var data_file = "events.json";
+            var http_request = new XMLHttpRequest();
+            try {
+                // Opera 8.0+, Firefox, Chrome, Safari
+                http_request = new XMLHttpRequest();
+            } catch (e) {
+                // Internet Explorer Browsers
+                try {
+                    http_request = new ActiveXObject("Msxml2.XMLHTTP");
+                }
+                catch (e) {
+                    try {
+                        http_request = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    catch (e) {
+                        // Something went wrong
+                        alert("Your browser broke!");
+                        return false;
+                    }
+
+                }
+            }
+            http_request.onreadystatechange = function () {
+                if (http_request.readyState == 4) {
+                    // Javascript function JSON.parse to parse JSON data
+                    jsonObj = JSON.parse(http_request.responseText);
+                    $(".event-container").children().remove();
+
+                    $(jsonObj).each(function (i, event) {
+                        if (filter(event)) {
+                            $(".event-container").append("<div class='event filtered-event'>\
+                                        <div class='event-img'>\
+                                            <img src='event-1.png'>\
+                                            <div class='event-user'>\
+                                                <span class='user'><ion-icon name='person'></ion-icon>" + event.eventHost + "</span>\
+                                            </div>\
+                                        </div>\
+                                        <div class='event-detail'>\
+                                            <h6 >" + event.eventName + "</h6>\
+                                            <p class='event-location'> "+ event.eventDate + ' &#8226; ' + event.eventLocation + "</p>\
+                                        </div>\
+                                    </div>")
+                        }
+                        $('.event-location').css('text-transform', 'capitalize');
+                    })
+                }
+            }
+            http_request.open("GET", data_file, true);
+            http_request.send();
+        }
+
+        function filter(event) {
+            var searchValue = $("#event-search").val().toLowerCase();
+            var cityValue = $("#city").val().toLowerCase();
+            var minHour = $("#min-hour").val();
+            var maxHour = $("#max-hour").val();
+            var minPrice = parseInt($("#min-price").val());
+            var maxPrice = parseInt($("#max-price").val());
+            var minSize = parseInt($("span#0").text());
+            var maxSize = parseInt($("span#1").text());
+            return searchNameOrLocation(event, searchValue) && (cityValue === "any" ? true : event.eventLocation.toLowerCase() === cityValue) &&
+                withinRange(event.eventLength, minHour, maxHour) &&
+                withinPriceRange(event, minPrice, maxPrice) &&
+                withinRange(event.eventSize, minSize, maxSize)
+        }
+
+        function searchNameOrLocation(event, searchValue) {
+            var matchedName = (event.eventName.toLowerCase().indexOf(searchValue) > -1);
+            var matchedLocation = (event.eventLocation.toLowerCase().indexOf(searchValue) > -1);
+              return (matchedLocation || matchedName);
+        }
+
+        function withinRange(eventVal, minVal, maxVal) {
+            return (eventVal >= minVal && eventVal <= maxVal);
+        }
+
+        function withinPriceRange(event, minPrice, maxPrice) {
+            var withinMin = isNaN(minPrice) ? true : event.eventCost >= minPrice;
+            var withinMax = isNaN(maxPrice) ? true : event.eventCost <= maxPrice;
+            return (withinMin && withinMax);
+        }
+    </script>
+</body>

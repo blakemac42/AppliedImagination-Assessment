@@ -750,7 +750,8 @@
 
                     $handles
                         .eq( i )
-                        .append( $("<span class=\"ui-slider-tip\">"+ options.formatLabel(tipValues[i]) +"</span>") );
+                        // .append( $("<span class=\"ui-slider-tip\">"+ options.formatLabel(tipValues[i]) +"</span>") );
+                        .append( $("<span id=" + i + " class=\"ui-slider-tip\">"+ options.formatLabel(tipValues[i]) +"</span>") );
 
                 }
 

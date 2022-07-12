@@ -1,43 +1,31 @@
 $( document ).ready(function() {
-        
-// EVENT SIZE SLIDER
-$(".slider")
 
-.slider({ 
+    // EVENT SIZE SLIDER
+    $(".slider")
+
+    .slider({ 
     min: 0, 
     max: 700, 
     range: true, 
-    values: [20, 500] 
-})
-                    
-.slider("pips", {
+    values: [0, 700] 
+    })
+            
+    .slider("pips", {
     rest: "label"
-})
-                    
-.slider("float");
+    })
+            
+    .slider("float");
 
+    // INTERACTIVE BEHAVIOR
 
+    $('.filter-btn').on('click', function () {
+        $('.filter-btn').removeClass('active');
+        $(this).addClass('active');
+    });
 
-// EVENT INPUT BEHAVIOR
-
-$('.filter-btn').on('click', function () {
-    $('.filter-btn').removeClass('active');
-    $(this).addClass('active');
-});
-
-
-// on change on every filter field 
-
-// $("#event-search").on('input', function() {
-//     let location = $(this).val();
-//     console.log(location)
-// })
-
-
-
-// ajax interceptor 
-
-// on change event, fire ajax (post request?), have that typed input set as a piece of data 
+    $('.hero-btn').on('click', function () {
+        $('.hero-btn').removeClass('active');
+        $(this).addClass('active');
+    });
 
 });
-     

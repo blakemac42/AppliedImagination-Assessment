@@ -1,0 +1,164 @@
+
+@media only screen and (max-width: 1080px) {
+
+    .hidden-xs{
+        display: none;
+    }
+
+    /* header styles */
+    .header{
+        flex-wrap: wrap;
+    }
+
+    .header > div {
+        flex-basis: 100%;
+    }
+
+    .header > .logo {
+        flex-basis: 40%;
+        padding-bottom: 24px;
+    }
+
+    .menu > ul {
+        display: flex;
+        padding-left: 0;
+        align-items: baseline;
+    }
+
+    .menu > ul > li {
+        flex-grow: 1;
+    }
+
+    .menu > ul > li a {
+        font-size: 16px;
+    }
+
+    /* hero styles */
+    
+    section#hero{
+        flex-wrap: wrap;
+        margin: 96px 0;
+    }
+
+    .hero-copy-wrapper{
+        flex-basis: 100%;
+        margin: 0 5%;
+    }
+
+    .hero-copy-wrapper p , i{
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .hero-copy-wrapper h6 {
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+
+    .hero-img{
+        flex-basis: 100%;
+        margin-top: 88px;
+    }
+
+    .hero-btn-grp a {
+        font-size: 16px;
+    }
+
+
+    /* event styles */ 
+
+    .serach-wrapper, .event-size{
+        width: 90%;
+    }
+
+    .event-row{
+        flex-wrap: wrap;
+    }
+
+    .event-container{
+        flex-basis: 100%;
+        order: 1;
+        grid-template-columns: 50% 50%;
+        overflow: hidden;
+    }
+
+    .filter-container{
+        flex-basis: 100%;
+        margin-bottom: 64px;
+    }
+
+    .filter-wrapper{
+        padding: 0;
+    }
+
+    .event-location-wrapper,
+    .event-length-wrapper, 
+    .seat-cost{
+        justify-content: left;
+    }
+
+    .category{
+        margin-right: 32px;
+    }
+
+    .seat-cost span:not(.dollar),
+    .event-length-wrapper span {
+        margin: 0 24px;
+    }
+
+    .seat-cost input::placeholder{
+        margin-left: 40px;
+    }
+
+    .seat-cost input {
+        width: 15%;
+    }
+
+    .seat-cost .dollar {
+        left: 3%;
+    }
+
+    .event-detail > h6 {
+        font-size: 18px;
+    }
+
+    .event-detail > p {
+        font-size: 12px;
+    }
+
+    /* footer styles */ 
+    
+    .footer-wrapper{
+        padding: 32px;
+    }
+
+    .copyright{
+        flex-basis: 100%;
+    }
+
+    .copyright p {
+        font-size: 16px;
+    }
+
+
+  }
+
+  @media only screen and (max-width: 640px) {
+
+    .event-container{
+        grid-template-columns: 100%;
+    }
+
+    .dollar{
+        display: none;
+    }
+
+    .seat-cost input::placeholder{
+        margin-left: 0px;
+    }
+
+    .seat-cost input{
+        padding-left: 8px;
+    }
+
+  }

@@ -1,23 +1,56 @@
 [
     {
-        "eventName": "first event",
-        "eventLocation": "Birmingham",
+        "eventName": "Apple Keynote",
+        "eventLocation": "birmingham",
         "eventLength": 2,
         "eventCost": 30,
-        "size": 200
+        "eventHost": "Jane Doe &#8226; 30 mins",
+        "eventSize": 100,
+        "eventDate": "Apr 20, 2020"
     },
     { 
-        "eventName": "second event",
-        "eventLocation": "Mobile",
-        "eventLength": 3,
+        "eventName": "Basic Title that Truncates When There's Too Much",
+        "eventLocation": "mobile",
+        "eventLength": 2,
         "eventCost": 50,
-        "size": 300
+        "eventHost": "Eric Chan &#8226; 2 hrs",
+        "eventSize": 200,
+        "eventDate": "May 3, 2020"
     },
     { 
-        "eventName": "third event",
-        "eventLocation": "Jackson",
+        "eventName": "Node, NPM, and You",
+        "eventLocation": "jackson",
         "eventLength": 4,
         "eventCost": 100,
-        "size": 600
+        "eventHost": "Jerry Head &#8226; 1 hr",
+        "eventSize": 300,
+        "eventDate": "Aug 24, 2020"
+    },
+    {
+        "eventName": "Facebook Developer Conference",
+        "eventLocation": "mobile",
+        "eventLength": 2,
+        "eventCost": 100,
+        "eventHost": "Ryan Bruzan &#8226; 8 hrs",
+        "eventSize": 400,
+        "eventDate": "Jan 1, 2021"
+    },
+    {
+        "eventName": "Apple Keynote",
+        "eventLocation": "atlanta",
+        "eventLength": 2,
+        "eventCost": 150,
+        "eventHost": "Jane Doe &#8226; 30 mins",
+        "eventSize": 500,
+        "eventDate": "Apr 20, 2020"
+    },
+    {
+        "eventName": "Basic Title that Truncates When There's Too Much",
+        "eventLocation": "atlanta",
+        "eventLength": 2,
+        "eventCost": 200,
+        "eventHost": "Eric Chan &#8226; 30 mins",
+        "eventSize": 700,
+        "eventDate": "May 3, 2020"
     }
 ]
